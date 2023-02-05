@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">test</string>
+    <string name="point_not_set">Точка не задана</string>
+    <string name="show_on_map">Показать на карте</string>
+    <string name="confirm_point">Подтвердить выбранную точку</string>
+    <string name="address">%1$s (%2$s, %3$s)</string>
+    <string name="pin_not_selected">Выберете точку на карте!</string>
+</resources>

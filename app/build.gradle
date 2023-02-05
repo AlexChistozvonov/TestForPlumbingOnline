@@ -1,0 +1,69 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs'
+}
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.test"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        disable 'StringFormatMatches'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+
+    // Map
+    implementation 'com.yandex.android:maps.mobile:4.1.0-full'
+    implementation 'com.google.android.gms:play-services-location:20.0.0'
+
+    // UI
+    implementation "androidx.fragment:fragment-ktx:1.5.5"
+    implementation 'androidx.appcompat:appcompat:1.6.0'
+    implementation "androidx.activity:activity-ktx:1.6.1"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+    implementation "com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6"
+    implementation "com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.1"
+    implementation "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.1"
+    implementation "androidx.core:core-ktx:1.9.0"
+
+    // Dagger
+    implementation "com.google.dagger:hilt-android:2.42"
+    kapt "com.google.dagger:hilt-android-compiler:2.42"
+
+    // Navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
+}

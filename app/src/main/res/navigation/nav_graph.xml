@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/informationFragment">
+
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="com.example.test.presentation.information.InformationFragment"
+        android:label="InformationFragment">
+        <argument
+            android:name="address"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="lat"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="lon"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/openMapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.test.presentation.map.MapFragment"
+        android:label="MapFragment">
+        <action
+            android:id="@+id/openInformationFragment"
+            app:destination="@id/informationFragment">
+            <argument
+                android:name="address"
+                app:argType="string" />
+            <argument
+                android:name="lat"
+                app:argType="string" />
+            <argument
+                android:name="lon"
+                app:argType="string" />
+        </action>
+    </fragment>
+</navigation>
